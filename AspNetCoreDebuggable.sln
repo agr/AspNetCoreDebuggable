@@ -47,6 +47,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.AspNetCore.Mvc.Ab
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.AspNetCore.Mvc.Core", "src\Microsoft.AspNetCore.Mvc.Core\Microsoft.AspNetCore.Mvc.Core.csproj", "{4BB92ACD-235C-44C0-8C1A-F3DD3ED430F9}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.AspNetCore.Mvc.ApiExplorer", "src\Microsoft.AspNetCore.Mvc.ApiExplorer\Microsoft.AspNetCore.Mvc.ApiExplorer.csproj", "{BA1C4E26-3578-412B-AA57-4F0B82F7E49B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -141,6 +143,10 @@ Global
 		{4BB92ACD-235C-44C0-8C1A-F3DD3ED430F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{4BB92ACD-235C-44C0-8C1A-F3DD3ED430F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{4BB92ACD-235C-44C0-8C1A-F3DD3ED430F9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BA1C4E26-3578-412B-AA57-4F0B82F7E49B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BA1C4E26-3578-412B-AA57-4F0B82F7E49B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BA1C4E26-3578-412B-AA57-4F0B82F7E49B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BA1C4E26-3578-412B-AA57-4F0B82F7E49B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
