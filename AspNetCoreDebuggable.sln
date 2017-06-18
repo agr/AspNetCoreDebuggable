@@ -67,6 +67,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.AspNetCore.Mvc.Ra
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.AspNetCore.Cryptography.Internal", "src\Microsoft.AspNetCore.Cryptography.Internal\Microsoft.AspNetCore.Cryptography.Internal.csproj", "{6398619C-7CB4-4719-81B2-41C195088FD0}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.AspNetCore.DataProtection.Abstractions", "src\Microsoft.AspNetCore.DataProtection.Abstractions\Microsoft.AspNetCore.DataProtection.Abstractions.csproj", "{B0E890E9-1A11-4B14-A2EF-A7690E26680A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -201,6 +203,10 @@ Global
 		{6398619C-7CB4-4719-81B2-41C195088FD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6398619C-7CB4-4719-81B2-41C195088FD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6398619C-7CB4-4719-81B2-41C195088FD0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0E890E9-1A11-4B14-A2EF-A7690E26680A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0E890E9-1A11-4B14-A2EF-A7690E26680A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0E890E9-1A11-4B14-A2EF-A7690E26680A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0E890E9-1A11-4B14-A2EF-A7690E26680A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
