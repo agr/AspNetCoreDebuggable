@@ -11,5 +11,12 @@
     <PackageReference Include="Microsoft.ApplicationInsights.AspNetCore" Version="2.0.1" />
     <PackageReference Include="Microsoft.AspNetCore" Version="1.1.2" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\src\Microsoft.AspNetCore.Diagnostics\Microsoft.AspNetCore.Diagnostics.csproj" />
+    <ProjectReference Include="..\src\Microsoft.AspNetCore.Hosting\Microsoft.AspNetCore.Hosting.csproj" />
+    <ProjectReference Include="..\src\Microsoft.AspNetCore.Routing\Microsoft.AspNetCore.Routing.csproj" />
+    <ProjectReference Include="..\src\Microsoft.AspNetCore.Server.IISIntegration\Microsoft.AspNetCore.Server.IISIntegration.csproj" />
+    <ProjectReference Include="..\src\Microsoft.AspNetCore.Server.Kestrel\Microsoft.AspNetCore.Server.Kestrel.csproj" />
+  </ItemGroup>
 
 </Project>
