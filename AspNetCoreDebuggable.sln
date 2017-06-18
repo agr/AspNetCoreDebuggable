@@ -51,6 +51,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.AspNetCore.Mvc.Ap
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.AspNetCore.Mvc.Cors", "src\Microsoft.AspNetCore.Mvc.Cors\Microsoft.AspNetCore.Mvc.Cors.csproj", "{6E6FD86C-68B9-4C9A-BBD5-0824A5CC3E4E}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.AspNetCore.Mvc.DataAnnotations", "src\Microsoft.AspNetCore.Mvc.DataAnnotations\Microsoft.AspNetCore.Mvc.DataAnnotations.csproj", "{910449D5-A73B-4F71-BE42-5EF7EB0CEF04}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -153,6 +155,10 @@ Global
 		{6E6FD86C-68B9-4C9A-BBD5-0824A5CC3E4E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6E6FD86C-68B9-4C9A-BBD5-0824A5CC3E4E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6E6FD86C-68B9-4C9A-BBD5-0824A5CC3E4E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{910449D5-A73B-4F71-BE42-5EF7EB0CEF04}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{910449D5-A73B-4F71-BE42-5EF7EB0CEF04}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{910449D5-A73B-4F71-BE42-5EF7EB0CEF04}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{910449D5-A73B-4F71-BE42-5EF7EB0CEF04}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
