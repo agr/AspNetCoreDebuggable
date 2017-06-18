@@ -61,6 +61,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.AspNetCore.Razor"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.AspNetCore.Html.Abstractions", "src\Microsoft.AspNetCore.Html.Abstractions\Microsoft.AspNetCore.Html.Abstractions.csproj", "{94872ABF-73A7-4091-A896-0BC28B76AE68}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.AspNetCore.Razor.Runtime", "src\Microsoft.AspNetCore.Razor.Runtime\Microsoft.AspNetCore.Razor.Runtime.csproj", "{AD0F2522-0203-427D-847F-39F78EF63868}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -183,6 +185,10 @@ Global
 		{94872ABF-73A7-4091-A896-0BC28B76AE68}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{94872ABF-73A7-4091-A896-0BC28B76AE68}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{94872ABF-73A7-4091-A896-0BC28B76AE68}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD0F2522-0203-427D-847F-39F78EF63868}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD0F2522-0203-427D-847F-39F78EF63868}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD0F2522-0203-427D-847F-39F78EF63868}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD0F2522-0203-427D-847F-39F78EF63868}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
