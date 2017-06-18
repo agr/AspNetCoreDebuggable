@@ -69,6 +69,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.AspNetCore.Crypto
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.AspNetCore.DataProtection.Abstractions", "src\Microsoft.AspNetCore.DataProtection.Abstractions\Microsoft.AspNetCore.DataProtection.Abstractions.csproj", "{B0E890E9-1A11-4B14-A2EF-A7690E26680A}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.AspNetCore.DataProtection", "src\Microsoft.AspNetCore.DataProtection\Microsoft.AspNetCore.DataProtection.csproj", "{3AF74CBC-5BDE-482F-B356-B34A874AFD1F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -207,6 +209,10 @@ Global
 		{B0E890E9-1A11-4B14-A2EF-A7690E26680A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B0E890E9-1A11-4B14-A2EF-A7690E26680A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B0E890E9-1A11-4B14-A2EF-A7690E26680A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AF74CBC-5BDE-482F-B356-B34A874AFD1F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AF74CBC-5BDE-482F-B356-B34A874AFD1F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AF74CBC-5BDE-482F-B356-B34A874AFD1F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AF74CBC-5BDE-482F-B356-B34A874AFD1F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
