@@ -65,6 +65,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.AspNetCore.Razor.
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.AspNetCore.Mvc.Razor.Host", "src\Microsoft.AspNetCore.Mvc.Razor.Host\Microsoft.AspNetCore.Mvc.Razor.Host.csproj", "{6FA376A4-235F-407A-8FE5-9AFA8288B780}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.AspNetCore.Cryptography.Internal", "src\Microsoft.AspNetCore.Cryptography.Internal\Microsoft.AspNetCore.Cryptography.Internal.csproj", "{6398619C-7CB4-4719-81B2-41C195088FD0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -195,6 +197,10 @@ Global
 		{6FA376A4-235F-407A-8FE5-9AFA8288B780}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6FA376A4-235F-407A-8FE5-9AFA8288B780}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6FA376A4-235F-407A-8FE5-9AFA8288B780}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6398619C-7CB4-4719-81B2-41C195088FD0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6398619C-7CB4-4719-81B2-41C195088FD0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6398619C-7CB4-4719-81B2-41C195088FD0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6398619C-7CB4-4719-81B2-41C195088FD0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
