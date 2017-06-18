@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 15
 VisualStudioVersion = 15.0.26430.13
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AspNetCoreDebuggable", "AspNetCoreDebuggable\AspNetCoreDebuggable.csproj", "{3FF5127D-3DB7-4726-A502-249B2B217AB5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AspNetCoreDebuggable", "AspNetCoreDebuggable\AspNetCoreDebuggable.csproj", "{3FF5127D-3DB7-4726-A502-249B2B217AB5}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.AspNetCore.WebUtilities", "src\Microsoft.AspNetCore.WebUtilities\Microsoft.AspNetCore.WebUtilities.csproj", "{58734ADC-C762-408F-8A37-E1CD4AEE3E4F}"
 EndProject
@@ -34,6 +34,18 @@ EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.AspNetCore.HttpOverrides", "src\Microsoft.AspNetCore.HttpOverrides\Microsoft.AspNetCore.HttpOverrides.csproj", "{0E829106-BA1D-4859-BCAC-E213FF79BCA8}"
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.AspNetCore.Server.IISIntegration", "src\Microsoft.AspNetCore.Server.IISIntegration\Microsoft.AspNetCore.Server.IISIntegration.csproj", "{2B2010DF-9A59-4F06-BBAF-1997A5A4B3E0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.AspNetCore.Cors", "src\Microsoft.AspNetCore.Cors\Microsoft.AspNetCore.Cors.csproj", "{417F6FCD-E3C4-4E5A-8A56-A9D9A35D8182}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.AspNetCore.Authorization", "src\Microsoft.AspNetCore.Authorization\Microsoft.AspNetCore.Authorization.csproj", "{BC81A312-2BFC-4AA4-AFAE-E843FCBAF931}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.AspNetCore.ResponseCaching.Abstractions", "src\Microsoft.AspNetCore.ResponseCaching.Abstractions\Microsoft.AspNetCore.ResponseCaching.Abstractions.csproj", "{33F0825F-F2B8-46B7-AF5C-5D3E0004BF64}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.AspNetCore.JsonPatch", "src\Microsoft.AspNetCore.JsonPatch\Microsoft.AspNetCore.JsonPatch.csproj", "{5DC9B10A-CD8F-4B9A-89BF-736CEEA1467F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.AspNetCore.Mvc.Abstractions", "src\Microsoft.AspNetCore.Mvc.Abstractions\Microsoft.AspNetCore.Mvc.Abstractions.csproj", "{70CAB618-D748-41D9-BDF1-9E79C04769E9}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.AspNetCore.Mvc.Core", "src\Microsoft.AspNetCore.Mvc.Core\Microsoft.AspNetCore.Mvc.Core.csproj", "{4BB92ACD-235C-44C0-8C1A-F3DD3ED430F9}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -105,6 +117,30 @@ Global
 		{2B2010DF-9A59-4F06-BBAF-1997A5A4B3E0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2B2010DF-9A59-4F06-BBAF-1997A5A4B3E0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2B2010DF-9A59-4F06-BBAF-1997A5A4B3E0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{417F6FCD-E3C4-4E5A-8A56-A9D9A35D8182}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{417F6FCD-E3C4-4E5A-8A56-A9D9A35D8182}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{417F6FCD-E3C4-4E5A-8A56-A9D9A35D8182}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{417F6FCD-E3C4-4E5A-8A56-A9D9A35D8182}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BC81A312-2BFC-4AA4-AFAE-E843FCBAF931}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BC81A312-2BFC-4AA4-AFAE-E843FCBAF931}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BC81A312-2BFC-4AA4-AFAE-E843FCBAF931}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BC81A312-2BFC-4AA4-AFAE-E843FCBAF931}.Release|Any CPU.Build.0 = Release|Any CPU
+		{33F0825F-F2B8-46B7-AF5C-5D3E0004BF64}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{33F0825F-F2B8-46B7-AF5C-5D3E0004BF64}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{33F0825F-F2B8-46B7-AF5C-5D3E0004BF64}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{33F0825F-F2B8-46B7-AF5C-5D3E0004BF64}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DC9B10A-CD8F-4B9A-89BF-736CEEA1467F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DC9B10A-CD8F-4B9A-89BF-736CEEA1467F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DC9B10A-CD8F-4B9A-89BF-736CEEA1467F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DC9B10A-CD8F-4B9A-89BF-736CEEA1467F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70CAB618-D748-41D9-BDF1-9E79C04769E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70CAB618-D748-41D9-BDF1-9E79C04769E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70CAB618-D748-41D9-BDF1-9E79C04769E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70CAB618-D748-41D9-BDF1-9E79C04769E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4BB92ACD-235C-44C0-8C1A-F3DD3ED430F9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4BB92ACD-235C-44C0-8C1A-F3DD3ED430F9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4BB92ACD-235C-44C0-8C1A-F3DD3ED430F9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4BB92ACD-235C-44C0-8C1A-F3DD3ED430F9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
