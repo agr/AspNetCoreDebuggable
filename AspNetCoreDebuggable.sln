@@ -55,6 +55,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.AspNetCore.Mvc.Da
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.AspNetCore.Mvc.Formatters.Json", "src\Microsoft.AspNetCore.Mvc.Formatters.Json\Microsoft.AspNetCore.Mvc.Formatters.Json.csproj", "{29F502E3-7C85-4872-8032-E2E879B1C5ED}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.AspNetCore.Localization", "src\Microsoft.AspNetCore.Localization\Microsoft.AspNetCore.Localization.csproj", "{51C4B79F-AF58-4E8E-8432-B1A3E1BC0D33}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -165,6 +167,10 @@ Global
 		{29F502E3-7C85-4872-8032-E2E879B1C5ED}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{29F502E3-7C85-4872-8032-E2E879B1C5ED}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{29F502E3-7C85-4872-8032-E2E879B1C5ED}.Release|Any CPU.Build.0 = Release|Any CPU
+		{51C4B79F-AF58-4E8E-8432-B1A3E1BC0D33}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{51C4B79F-AF58-4E8E-8432-B1A3E1BC0D33}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{51C4B79F-AF58-4E8E-8432-B1A3E1BC0D33}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{51C4B79F-AF58-4E8E-8432-B1A3E1BC0D33}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
