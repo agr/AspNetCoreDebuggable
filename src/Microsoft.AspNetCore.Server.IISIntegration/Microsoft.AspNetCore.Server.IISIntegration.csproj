@@ -1,0 +1,52 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>ASP.NET Core components for working with the IIS AspNetCoreModule.</Description>
+    <VersionPrefix>1.1.2</VersionPrefix>
+    <TargetFrameworks>net451;netstandard1.3</TargetFrameworks>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <AssemblyName>Microsoft.AspNetCore.Server.IISIntegration</AssemblyName>
+    <AssemblyOriginatorKeyFile>../../tools/Key.snk</AssemblyOriginatorKeyFile>
+    <SignAssembly>true</SignAssembly>
+    <PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
+    <PackageId>Microsoft.AspNetCore.Server.IISIntegration</PackageId>
+    <PackageTags>aspnetcore;iis</PackageTags>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>git://github.com/aspnet/IISIntegration</RepositoryUrl>
+    <NetStandardImplicitPackageVersion>1.6.1</NetStandardImplicitPackageVersion>
+    <GenerateNeutralResourcesLanguageAttribute>false</GenerateNeutralResourcesLanguageAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="1.1.2" />
+    <PackageReference Include="Microsoft.Extensions.Options" Version="1.1.2" />
+    <PackageReference Include="Microsoft.Extensions.SecurityHelper.Sources" Version="1.1.1">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Extensions.TaskCache.Sources" Version="1.1.1">
+      <PrivateAssets>All</PrivateAssets>
+    </PackageReference>
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net451' ">
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'netstandard1.3' ">
+    <PackageReference Include="System.Security.Principal.Windows" Version="4.3.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Microsoft.AspNetCore.Hosting.Abstractions\Microsoft.AspNetCore.Hosting.Abstractions.csproj" />
+    <ProjectReference Include="..\Microsoft.AspNetCore.Http.Extensions\Microsoft.AspNetCore.Http.Extensions.csproj" />
+    <ProjectReference Include="..\Microsoft.AspNetCore.HttpOverrides\Microsoft.AspNetCore.HttpOverrides.csproj" />
+    <ProjectReference Include="..\Microsoft.AspNetCore.Http\Microsoft.AspNetCore.Http.csproj" />
+  </ItemGroup>
+
+</Project>

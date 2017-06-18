@@ -1,0 +1,231 @@
+// Copyright (c) .NET Foundation. All rights reserved.
+// Licensed under the Apache License, Version 2.0. See License.txt in the project root for license information.
+
+using System;
+using System.Collections.Generic;
+using System.IO;
+using System.Linq;
+using System.Reflection;
+using Microsoft.AspNetCore.Hosting;
+using Microsoft.AspNetCore.Hosting.Server;
+using Microsoft.AspNetCore.Hosting.Server.Features;
+using Microsoft.AspNetCore.Http.Features;
+using Microsoft.AspNetCore.Server.Kestrel.Internal;
+using Microsoft.AspNetCore.Server.Kestrel.Internal.Http;
+using Microsoft.AspNetCore.Server.Kestrel.Internal.Infrastructure;
+using Microsoft.AspNetCore.Server.Kestrel.Internal.Networking;
+using Microsoft.Extensions.Logging;
+using Microsoft.Extensions.Options;
+
+namespace Microsoft.AspNetCore.Server.Kestrel
+{
+    public class KestrelServer : IServer
+    {
+        private Stack<IDisposable> _disposables;
+        private readonly IApplicationLifetime _applicationLifetime;
+        private readonly ILogger _logger;
+        private readonly IServerAddressesFeature _serverAddresses;
+
+        public KestrelServer(IOptions<KestrelServerOptions> options, IApplicationLifetime applicationLifetime, ILoggerFactory loggerFactory)
+        {
+            if (options == null)
+            {
+                throw new ArgumentNullException(nameof(options));
+            }
+
+            if (applicationLifetime == null)
+            {
+                throw new ArgumentNullException(nameof(applicationLifetime));
+            }
+
+            if (loggerFactory == null)
+            {
+                throw new ArgumentNullException(nameof(loggerFactory));
+            }
+
+            Options = options.Value ?? new KestrelServerOptions();
+            _applicationLifetime = applicationLifetime;
+            _logger = loggerFactory.CreateLogger(typeof(KestrelServer).GetTypeInfo().Namespace);
+            Features = new FeatureCollection();
+            _serverAddresses = new ServerAddressesFeature();
+            Features.Set<IServerAddressesFeature>(_serverAddresses);
+        }
+
+        public IFeatureCollection Features { get; }
+
+        public KestrelServerOptions Options { get; }
+
+        public void Start<TContext>(IHttpApplication<TContext> application)
+        {
+            try
+            {
+                if (!BitConverter.IsLittleEndian)
+                {
+                    throw new PlatformNotSupportedException("Kestrel does not support big-endian architectures.");
+                }
+
+                ValidateOptions();
+
+                if (_disposables != null)
+                {
+                    // The server has already started and/or has not been cleaned up yet
+                    throw new InvalidOperationException("Server has already started.");
+                }
+                _disposables = new Stack<IDisposable>();
+
+                var dateHeaderValueManager = new DateHeaderValueManager();
+                var trace = new KestrelTrace(_logger);
+                var engine = new KestrelEngine(new ServiceContext
+                {
+                    FrameFactory = context =>
+                    {
+                        return new Frame<TContext>(application, context);
+                    },
+                    AppLifetime = _applicationLifetime,
+                    Log = trace,
+                    ThreadPool = new LoggingThreadPool(trace),
+                    DateHeaderValueManager = dateHeaderValueManager,
+                    ServerOptions = Options
+                });
+
+                _disposables.Push(engine);
+                _disposables.Push(dateHeaderValueManager);
+
+                var threadCount = Options.ThreadCount;
+
+                if (threadCount <= 0)
+                {
+                    throw new ArgumentOutOfRangeException(nameof(threadCount),
+                        threadCount,
+                        "ThreadCount must be positive.");
+                }
+
+                if (!Constants.ECONNRESET.HasValue)
+                {
+                    _logger.LogWarning("Unable to determine ECONNRESET value on this platform.");
+                }
+
+                if (!Constants.EADDRINUSE.HasValue)
+                {
+                    _logger.LogWarning("Unable to determine EADDRINUSE value on this platform.");
+                }
+
+                engine.Start(threadCount);
+                var atLeastOneListener = false;
+
+                foreach (var address in _serverAddresses.Addresses.ToArray())
+                {
+                    var parsedAddress = ServerAddress.FromUrl(address);
+                    atLeastOneListener = true;
+
+                    if (!parsedAddress.Host.Equals("localhost", StringComparison.OrdinalIgnoreCase))
+                    {
+                        try
+                        {
+                            _disposables.Push(engine.CreateServer(parsedAddress));
+                        }
+                        catch (AggregateException ex)
+                        {
+                            if ((ex.InnerException as UvException)?.StatusCode == Constants.EADDRINUSE)
+                            {
+                                throw new IOException($"Failed to bind to address {parsedAddress}: address already in use.", ex);
+                            }
+
+                            throw;
+                        }
+                    }
+                    else
+                    {
+                        if (parsedAddress.Port == 0)
+                        {
+                            throw new InvalidOperationException("Dynamic port binding is not supported when binding to localhost. You must either bind to 127.0.0.1:0 or [::1]:0, or both.");
+                        }
+
+                        var ipv4Address = parsedAddress.WithHost("127.0.0.1");
+                        var exceptions = new List<Exception>();
+
+                        try
+                        {
+                            _disposables.Push(engine.CreateServer(ipv4Address));
+                        }
+                        catch (AggregateException ex) when (ex.InnerException is UvException)
+                        {
+                            var uvEx = (UvException)ex.InnerException;
+                            if (uvEx.StatusCode == Constants.EADDRINUSE)
+                            {
+                                throw new IOException($"Failed to bind to address {parsedAddress.ToString()} on the IPv4 loopback interface: port already in use.", ex);
+                            }
+                            else
+                            {
+                                _logger.LogWarning(0, $"Unable to bind to {parsedAddress.ToString()} on the IPv4 loopback interface: ({uvEx.Message})");
+                                exceptions.Add(uvEx);
+                            }
+                        }
+
+                        var ipv6Address = parsedAddress.WithHost("[::1]");
+
+                        try
+                        {
+                            _disposables.Push(engine.CreateServer(ipv6Address));
+                        }
+                        catch (AggregateException ex) when (ex.InnerException is UvException)
+                        {
+                            var uvEx = (UvException)ex.InnerException;
+                            if (uvEx.StatusCode == Constants.EADDRINUSE)
+                            {
+                                throw new IOException($"Failed to bind to address {parsedAddress.ToString()} on the IPv6 loopback interface: port already in use.", ex);
+                            }
+                            else
+                            {
+                                _logger.LogWarning(0, $"Unable to bind to {parsedAddress.ToString()} on the IPv6 loopback interface: ({uvEx.Message})");
+                                exceptions.Add(uvEx);
+                            }
+                        }
+
+                        if (exceptions.Count == 2)
+                        {
+                            throw new IOException($"Failed to bind to address {parsedAddress.ToString()}.", new AggregateException(exceptions));
+                        }
+                    }
+
+                    // If requested port was "0", replace with assigned dynamic port.
+                    _serverAddresses.Addresses.Remove(address);
+                    _serverAddresses.Addresses.Add(parsedAddress.ToString());
+                }
+
+                if (!atLeastOneListener)
+                {
+                    throw new InvalidOperationException("No recognized listening addresses were configured.");
+                }
+            }
+            catch (Exception ex)
+            {
+                _logger.LogCritical(0, ex, "Unable to start Kestrel.");
+                Dispose();
+                throw;
+            }
+        }
+
+        public void Dispose()
+        {
+            if (_disposables != null)
+            {
+                while (_disposables.Count > 0)
+                {
+                    _disposables.Pop().Dispose();
+                }
+                _disposables = null;
+            }
+        }
+
+        private void ValidateOptions()
+        {
+            if (Options.Limits.MaxRequestBufferSize.HasValue &&
+                Options.Limits.MaxRequestBufferSize < Options.Limits.MaxRequestLineSize)
+            {
+                throw new InvalidOperationException(
+                    $"Maximum request buffer size ({Options.Limits.MaxRequestBufferSize.Value}) must be greater than or equal to maximum request line size ({Options.Limits.MaxRequestLineSize}).");
+            }
+        }
+    }
+}

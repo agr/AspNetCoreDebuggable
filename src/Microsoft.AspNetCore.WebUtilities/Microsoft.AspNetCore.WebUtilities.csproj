@@ -1,0 +1,39 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <Description>ASP.NET Core utilities, such as for working with forms, multipart messages, and query strings.</Description>
+    <VersionPrefix>1.1.2</VersionPrefix>
+    <TargetFrameworks>net451;netstandard1.3</TargetFrameworks>
+    <DefineConstants>$(DefineConstants);WebEncoders_In_WebUtilities</DefineConstants>
+    <NoWarn>$(NoWarn);CS1591</NoWarn>
+    <TreatWarningsAsErrors>true</TreatWarningsAsErrors>
+    <GenerateDocumentationFile>true</GenerateDocumentationFile>
+    <AssemblyName>Microsoft.AspNetCore.WebUtilities</AssemblyName>
+    <AssemblyOriginatorKeyFile>../../tools/Key.snk</AssemblyOriginatorKeyFile>
+    <SignAssembly>true</SignAssembly>
+    <PublicSign Condition=" '$(OS)' != 'Windows_NT' ">true</PublicSign>
+    <PackageId>Microsoft.AspNetCore.WebUtilities</PackageId>
+    <PackageTags>aspnetcore</PackageTags>
+    <RepositoryType>git</RepositoryType>
+    <RepositoryUrl>git://github.com/aspnet/httpabstractions</RepositoryUrl>
+    <NetStandardImplicitPackageVersion>1.6.1</NetStandardImplicitPackageVersion>
+    <GenerateNeutralResourcesLanguageAttribute>false</GenerateNeutralResourcesLanguageAttribute>
+    <GenerateAssemblyCompanyAttribute>false</GenerateAssemblyCompanyAttribute>
+    <GenerateAssemblyCopyrightAttribute>false</GenerateAssemblyCopyrightAttribute>
+    <GenerateAssemblyProductAttribute>false</GenerateAssemblyProductAttribute>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Primitives" Version="1.1.1" />
+    <PackageReference Include="Microsoft.Net.Http.Headers" Version="1.1.2" />
+    <PackageReference Include="System.Buffers" Version="4.3.0" />
+    <PackageReference Include="System.Text.Encodings.Web" Version="4.3.1" />
+  </ItemGroup>
+
+  <ItemGroup Condition=" '$(TargetFramework)' == 'net451' ">
+    <Reference Include="System.Runtime" />
+    <Reference Include="System" />
+    <Reference Include="Microsoft.CSharp" />
+  </ItemGroup>
+
+</Project>
