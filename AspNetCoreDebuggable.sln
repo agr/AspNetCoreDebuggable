@@ -73,6 +73,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.AspNetCore.DataPr
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.AspNetCore.Antiforgery", "src\Microsoft.AspNetCore.Antiforgery\Microsoft.AspNetCore.Antiforgery.csproj", "{DFC3933C-72B1-4A89-AE57-8FBB67175333}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Microsoft.AspNetCore.Mvc.ViewFeatures", "src\Microsoft.AspNetCore.Mvc.ViewFeatures\Microsoft.AspNetCore.Mvc.ViewFeatures.csproj", "{AAC1B817-7898-4933-8980-68140122D486}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -219,6 +221,10 @@ Global
 		{DFC3933C-72B1-4A89-AE57-8FBB67175333}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DFC3933C-72B1-4A89-AE57-8FBB67175333}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DFC3933C-72B1-4A89-AE57-8FBB67175333}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AAC1B817-7898-4933-8980-68140122D486}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AAC1B817-7898-4933-8980-68140122D486}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AAC1B817-7898-4933-8980-68140122D486}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AAC1B817-7898-4933-8980-68140122D486}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
