@@ -39,7 +39,7 @@ Microsoft.AspNetCore.Http.HttpResponse</Description>
     <PackageReference Include="Microsoft.Extensions.TaskCache.Sources" Version="1.1.1">
       <PrivateAssets>All</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="System.Text.Encodings.Web" Version="4.3.1" />
+    <PackageReference Include="System.Text.Encodings.Web" Version="4.5.1" />
   </ItemGroup>
 
   <ItemGroup Condition=" '$(TargetFramework)' == 'net451' ">
